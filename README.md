@@ -1,6 +1,6 @@
 # 8-Bit RISC Processor
 
-A compact, educational 8-bit RISC-style processor implemented in SystemVerilog. This repository contains the core datapath building blocks, decode logic, and simulation testbenches used to model a simple CPU architecture.
+A simple 8-bit RISC-style processor implemented in SystemVerilog. This repository contains the core datapath building blocks, decode logic, and simulation testbenches used to model this CPU architecture.
 
 ## Overview
 
@@ -11,9 +11,9 @@ This project is designed around a minimal, 8-bit instruction set and a register-
 - Register file
 - Program counter
 - Instruction memory
-- Testbenches for verification
+- Respective Testbenches for each of them (barring the instruction decoder of course)
 
-The repository is intended as a learning project and a foundation for building a larger processor or adding more instructions and pipeline stages later.
+The repository is intended as a learning project and a foundation for building a larger processor or adding more instructions and pipeline stages later (I'm still playing around with some ideas).
 
 ## Architecture
 
@@ -115,7 +115,7 @@ The instruction memory is modeled as an array of 256 entries, each 16 bits wide.
 
 ## Testbenches
 
-The repository includes individual simulation testbenches for each major block:
+The repository includes individual simulation testbenches for each major block - I tried to be as thorough as possible but I do sometimes get some edge case ideas from time to time so I tend to add some too:
 
 - `alu_tb.sv` — validates ALU behavior across the supported operations
 - `decoder_tb.sv` — checks decoder outputs for each opcode
@@ -126,7 +126,7 @@ These testbenches are written in SystemVerilog and are useful for verification i
 
 ## Simulation Example
 
-A typical workflow with Icarus Verilog would look like this:
+A typical workflow with Icarus Verilog would sort of like this:
 
 ```bash
 iverilog -g2012 -o processor_sim \
@@ -147,21 +147,14 @@ You can also run the testbenches one at a time in your preferred simulator depen
 
 ## Notes
 
-This project is intentionally minimal and educational. It demonstrates the core ideas of a simple CPU datapath without a full assembler, pipeline, or memory controller.
+This project is intentionally minimal and educational (due to this ebing a basic beginner's project for me to foray into SystemVerilog). It demonstrates the core ideas of a simple CPU datapath without a full assembler, pipeline, or memory controller.
 
 Potential next improvements include:
 
 - Full instruction fetch/decode/execute datapath integration
 - A top-level CPU module
-- Program loading into instruction memory
-- Branch control using status flags
-- More advanced instructions and addressing modes
 - A compiler/assembler for the custom ISA
 
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
-
-## Author
-
-This repository is maintained by Shreyas Kalyanaraman and is intended for HDL learning, experimentation, and processor design exploration.
